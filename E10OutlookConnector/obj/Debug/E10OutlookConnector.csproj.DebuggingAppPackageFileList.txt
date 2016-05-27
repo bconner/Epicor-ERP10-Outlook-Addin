@@ -1,0 +1,2 @@
+bin\Debug\OfficeAppManifests\E10OutlookConnectorManifest.xml
+C:\Source\Repos\SandBox-RC-O365\Partner-PoC\Epicor\E10OutlookConnectorv1\E10OutlookConnector\bin\Debug\E10OutlookConnector.debugapp
