@@ -41,7 +41,7 @@
     <Form xsi:type="ItemRead">
       <DesktopSettings>
         <SourceLocation DefaultValue="https://e10outlook.azurewebsites.net/addin/MessageRead.html"/>
-        <RequestedHeight>250</RequestedHeight>
+        <RequestedHeight>450</RequestedHeight>
       </DesktopSettings>
     </Form>
   </FormSettings>
@@ -105,7 +105,7 @@
       </bt:Images>
       <bt:Urls>
         <bt:Url id="functionFile" DefaultValue="https://e10outlook.azurewebsites.net/Functions/FunctionFile.html"/>
-        <bt:Url id="messageReadTaskPaneUrl" DefaultValue="https://localhost:44300/Addin/MessageRead.html"/>
+        <bt:Url id="messageReadTaskPaneUrl" DefaultValue="https://e10outlook.azurewebsites.net/Addin/MessageRead.html"/>
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="groupLabel" DefaultValue="Epicor"/>
