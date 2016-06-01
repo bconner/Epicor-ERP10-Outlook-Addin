@@ -1,0 +1,11 @@
+C:\Source\Repos\SandBox-RC-O365\O365\Helpers\SSOExchangeHelper\bin\Debug\SSOExchangeHelper.dll
+C:\Source\Repos\SandBox-RC-O365\O365\Helpers\SSOExchangeHelper\bin\Debug\SSOExchangeHelper.pdb
+C:\Source\Repos\SandBox-RC-O365\O365\Helpers\SSOExchangeHelper\bin\Debug\Newtonsoft.Json.dll
+C:\Source\Repos\SandBox-RC-O365\O365\Helpers\SSOExchangeHelper\bin\Debug\Newtonsoft.Json.xml
+C:\Source\Repos\SandBox-RC-O365\O365\Helpers\SSOExchangeHelper\obj\Debug\SSOExchangeHelper.dll
+C:\Source\Repos\SandBox-RC-O365\O365\Helpers\SSOExchangeHelper\obj\Debug\SSOExchangeHelper.pdb
+C:\Source\Repos\SandBox-RC-O365\O365\Helpers\SSOExchangeHelper\obj\Debug\SSOExchangeHelper.csprojResolveAssemblyReference.cache
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\SSOExchangeHelper\bin\Debug\SSOExchangeHelper.dll
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\SSOExchangeHelper\bin\Debug\SSOExchangeHelper.pdb
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\SSOExchangeHelper\obj\Debug\SSOExchangeHelper.dll
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\SSOExchangeHelper\obj\Debug\SSOExchangeHelper.pdb

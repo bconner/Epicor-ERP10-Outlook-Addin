@@ -53,3 +53,31 @@ C:\Source\Repos\SandBox-RC-O365\Partner-PoC\Epicor\E10OutlookConnectorv1\E10Outl
 C:\Source\Repos\SandBox-RC-O365\Partner-PoC\Epicor\E10OutlookConnectorv1\E10OutlookConnectorWeb\obj\Release\E10OutlookConnectorWeb.dll
 C:\Source\Repos\SandBox-RC-O365\Partner-PoC\Epicor\E10OutlookConnectorv1\E10OutlookConnectorWeb\obj\Release\E10OutlookConnectorWeb.pdb
 C:\Source\Repos\SandBox-RC-O365\Partner-PoC\Epicor\E10OutlookConnectorv1\E10OutlookConnectorWeb\obj\Release\E10OutlookConnectorWeb.csprojResolveAssemblyReference.cache
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnectorWeb\obj\Release\E10OutlookConnectorWeb.csprojResolveAssemblyReference.cache
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnectorWeb\obj\Release\E10OutlookConnectorWeb.dll
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnectorWeb\obj\Release\E10OutlookConnectorWeb.pdb
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnectorWeb\bin\roslyn\csc.exe
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnectorWeb\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnectorWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnectorWeb\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnectorWeb\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnectorWeb\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnectorWeb\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnectorWeb\bin\roslyn\System.Collections.Immutable.dll
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnectorWeb\bin\roslyn\System.Reflection.Metadata.dll
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnectorWeb\bin\roslyn\vbc.exe
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnectorWeb\bin\roslyn\VBCSCompiler.exe
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnectorWeb\bin\roslyn\VBCSCompiler.exe.config
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnectorWeb\bin\E10OutlookConnectorWeb.dll.config
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnectorWeb\bin\E10OutlookConnectorWeb.dll
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnectorWeb\bin\E10OutlookConnectorWeb.pdb
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnectorWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnectorWeb\bin\Newtonsoft.Json.dll
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnectorWeb\bin\System.Net.Http.Formatting.dll
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnectorWeb\bin\System.Web.Http.dll
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnectorWeb\bin\System.Web.Http.WebHost.dll
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnectorWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnectorWeb\bin\Newtonsoft.Json.xml
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnectorWeb\bin\System.Net.Http.Formatting.xml
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnectorWeb\bin\System.Web.Http.xml
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnectorWeb\bin\System.Web.Http.WebHost.xml

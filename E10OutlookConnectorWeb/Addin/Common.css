@@ -116,11 +116,15 @@ ul {
     }
 }
 
-/* Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See full license in root of repo. */
-/* Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See full license in root of repo. */
+.displayedPage {
+    display:block;
+}
 
+.hiddenPage {
+    display:none;
+    background-color:red;
+}
 
-/* Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See full license in root of repo. */
 
 /* Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See full license in root of repo. */
 

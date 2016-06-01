@@ -37,3 +37,16 @@ C:\Source\Repos\SandBox-RC-O365\Partner-PoC\Epicor\E10OutlookConnectorv1\E10Outl
 C:\Source\Repos\SandBox-RC-O365\Partner-PoC\Epicor\E10OutlookConnectorv1\E10OutlookConnector\bin\Debug\roslyn\VBCSCompiler.exe
 C:\Source\Repos\SandBox-RC-O365\Partner-PoC\Epicor\E10OutlookConnectorv1\E10OutlookConnector\bin\Debug\roslyn\VBCSCompiler.exe.config
 C:\Source\Repos\SandBox-RC-O365\Partner-PoC\Epicor\E10OutlookConnectorv1\E10OutlookConnector\obj\Debug\E10OutlookConnector.csprojResolveAssemblyReference.cache
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnector\bin\Debug\roslyn\csc.exe
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnector\bin\Debug\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnector\bin\Debug\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnector\bin\Debug\roslyn\Microsoft.CodeAnalysis.dll
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnector\bin\Debug\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnector\bin\Debug\roslyn\Microsoft.CSharp.Core.targets
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnector\bin\Debug\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnector\bin\Debug\roslyn\System.Collections.Immutable.dll
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnector\bin\Debug\roslyn\System.Reflection.Metadata.dll
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnector\bin\Debug\roslyn\vbc.exe
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnector\bin\Debug\roslyn\VBCSCompiler.exe
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnector\bin\Debug\roslyn\VBCSCompiler.exe.config
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnector\obj\Debug\E10OutlookConnector.csprojResolveAssemblyReference.cache
