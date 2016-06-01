@@ -50,8 +50,8 @@ namespace E10OutlookConnectorWeb.Controllers
             HttpResponseMessage response = new HttpResponseMessage();
 
             // ensure we have a valid Identity Token, i.e. the user belongs to this exchange
-            var idToken = TokenDecoder.Decode(serviceRequest.token);
             var token = (AppIdentityToken)AuthToken.Parse(serviceRequest.token);
+            var idToken = TokenDecoder.Decode(serviceRequest.token);
 
             try
             {
@@ -76,6 +76,7 @@ namespace E10OutlookConnectorWeb.Controllers
                 else
                 {
                     response.StatusCode = HttpStatusCode.Unauthorized;
+                    response.ReasonPhrase = "User must login with their Epicor credentials";
                 }
 
                 if (!string.IsNullOrEmpty(credentials))
@@ -97,6 +98,12 @@ namespace E10OutlookConnectorWeb.Controllers
             catch (TokenValidationException ex)
             {
                 response.StatusCode = HttpStatusCode.Unauthorized;
+                response.ReasonPhrase = ex.Message;
+            }
+            catch (Exception ex)
+            {
+                response.StatusCode = HttpStatusCode.InternalServerError;
+                response.ReasonPhrase = ex.Message;
             }
 
             return response;

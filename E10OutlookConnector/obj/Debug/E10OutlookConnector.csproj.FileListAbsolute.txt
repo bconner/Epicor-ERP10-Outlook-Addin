@@ -49,4 +49,3 @@ C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnector\bin\Debug\roslyn\
 C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnector\bin\Debug\roslyn\vbc.exe
 C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnector\bin\Debug\roslyn\VBCSCompiler.exe
 C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnector\bin\Debug\roslyn\VBCSCompiler.exe.config
-C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnector\obj\Debug\E10OutlookConnector.csprojResolveAssemblyReference.cache

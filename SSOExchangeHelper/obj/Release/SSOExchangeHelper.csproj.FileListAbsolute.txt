@@ -1,0 +1,1 @@
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\SSOExchangeHelper\obj\Release\SSOExchangeHelper.csprojResolveAssemblyReference.cache

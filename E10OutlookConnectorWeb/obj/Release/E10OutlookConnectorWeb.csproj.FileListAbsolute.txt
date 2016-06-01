@@ -81,3 +81,10 @@ C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnectorWeb\bin\Newtonsoft
 C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnectorWeb\bin\System.Net.Http.Formatting.xml
 C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnectorWeb\bin\System.Web.Http.xml
 C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnectorWeb\bin\System.Web.Http.WebHost.xml
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnectorWeb\bin\Microsoft.Exchange.WebServices.Auth.dll
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnectorWeb\bin\Microsoft.Exchange.WebServices.dll
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnectorWeb\bin\Microsoft.IdentityModel.Extensions.dll
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnectorWeb\bin\Microsoft.Exchange.WebServices.pdb
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnectorWeb\bin\Microsoft.Exchange.WebServices.xml
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnectorWeb\bin\Microsoft.Exchange.WebServices.Auth.pdb
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnectorWeb\bin\Microsoft.Exchange.WebServices.Auth.xml
