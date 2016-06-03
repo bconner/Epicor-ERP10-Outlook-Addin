@@ -67,7 +67,6 @@
 
         var logonForm = document.getElementById("logonForm");
         logonForm.setAttribute("class", "hiddenPage");
-
         var profile = document.getElementById("profile");
         profile.setAttribute("class", "displayedPage");
 
@@ -95,8 +94,11 @@
         request.context = item.sender.emailAddress;
         var chartYTDData = new Array();
 
+        var chartXAxis = new Array();
+        var chartYAxis = new Array();
+
         $.ajax({
-            url: '../../api/e10/',
+            url: '../../api/e10/contact',
             type: 'POST',
             data: JSON.stringify(request),
             contentType: 'application/json;charset=utf-8'
@@ -104,121 +106,114 @@
 
             var customer = data.value[0];
 
-            // ensure the logon form is hidden and the profile section is visible.
-            var logonForm = document.getElementById("logonForm");
-            logonForm.setAttribute("class", "hiddenPage");
-            var profile = document.getElementById("profile");
-            profile.setAttribute("class", "displayedPage");
-
             // apply the data from the API call to the elements within the HTML page.
 
-            //$("#contact").text(data.Contact);
-            //$("#title").text(data.Title);
-            //$("#onhold").text(data.OnHold);
-            //$("#company").text(data.Company);
-            //$("a#email").attr('href', 'mailto:' + data.Email);
-            //$("a#email").text(data.Email);
-            //$("a#telephone").attr('href', 'skype:' + data.Telephone + '?call');
-            //$("a#telephone").text(data.Telephone);
-            //$("a#cell").attr('href', 'skype:' + data.Cell + '?call');
-            //$("a#cell").text(data.Cell);
-            //$("#openOrders").text(data.OpenOrders);
-            //$("#salesYtd").text(data.SalesYTD);
-            //$("#ar90days").text(data.AR90Days);
-            //$("#openAR").text(data.OpenAR);
+            $("#contact").text(customer.CustCnt_Name);
+            $("#title").text(customer.CustCnt_ContactTitle);
+            $("#company").text(customer.Company_Name + ' (' + customer.Customer_Company + ')');
+            $("a#email").attr('href', 'mailto:' + customer.CustCnt_EMailAddress);
+            $("a#email").text(customer.CustCnt_EMailAddress);
+            $("a#telephone").attr('href', 'skype:' + customer.CustCnt_PhoneNum + '?call');
+            $("a#telephone").text(customer.CustCnt_PhoneNum);
+            $("a#cell").attr('href', 'skype:' + customer.CustCnt_CellPhoneNum + '?call');
+            $("a#cell").text(customer.CustCnt_CellPhoneNum);
+            $("#openOrders").text(customer.Calculated_OpenOrder);
+            $("#openAR").text('$' + customer.Calculated_OpenARValue);
 
-            //data.SalesByRegion.forEach(function (entry) {
-            //    chartYTDData.push(entry);
-            //});
+            if (customer.Customer_CreditHold == false) {
+                $("#onhold").text('N');
+            } else {
+                $("#onhold").text('Y');
+            };
 
-            //var chartData = [
-            //    {
-            //        value: chartYTDData[0].Value,
-            //        color: "#F7464A",
-            //        highlight: "#FF5A5E",
-            //        label: chartYTDData[0].Region
-            //    },
-            //    {
-            //        value: chartYTDData[1].Value,
-            //        color: "#46BFBD",
-            //        highlight: "#5AD3D1",
-            //        label: chartYTDData[1].Region
-            //    },
-            //    {
-            //        value: chartYTDData[2].Value,
-            //        color: "#FDB45C",
-            //        highlight: "#FFC870",
-            //        label: chartYTDData[2].Region
-            //    },
-            //    {
-            //        value: chartYTDData[3].Value,
-            //        color: "#FFBBFF",
-            //        highlight: "#FFC870",
-            //        label: chartYTDData[3].Region
-            //    }
-            //];
+            $("#address1").text(customer.Customer_Address1);
+            $("#address2").text(customer.Customer_City + ', ' + customer.Customer_State + ', ' + customer.Customer_Zip + ', ' + customer.Customer_Country);
 
-            //var options = { animateScale: true, animateRotate: true, responsive: true };
-            //var DoughnutTextInsideChart = new Chart($('#salesYTDChart')[0].getContext('2d')).DoughnutTextInside(chartData, options);
+            // get the chart data
+            $.ajax({
+                url: '../../api/e10/values',
+                type: 'POST',
+                data: JSON.stringify(request),
+                contentType: 'application/json;charset=utf-8'
+            }).done(function (chartData) {
 
-            //// show a notification toast if the customer is on-hold
-            //if (data.OnHold == 'Y') {
-            //    if (typeof fabric === "object") {
-            //        if ('Toast' in fabric) {
-            //            var component = new fabric['Toast'];
-            //            component.showToast('Customer On-hold', 'Please be aware that this Customer is on-hold and all communications need to be handled carefully. ');
-            //        }
-            //    }
-            //}
+                // show the years Sales Figures
+                chartData.value.forEach(function (entry) {
+                    chartXAxis.push(entry.Calculated_FiscalYear);
 
-        }).fail(function (error) {
+                    // divide the number by 1000 to make the chart more readable
+                    var s = (parseFloat(entry.Calculated_TotalSales) / 1000).toFixed(2);
+                    chartYAxis.push(s);
+                });
 
-            // if the credentials are blank, or invalid or the token could not be validated then the error returned is 401 (Unauthorized)
-            if (error.status = '401') {
+                var data = {
+                    labels: chartXAxis,
+                    datasets: [{
+                        data: chartYAxis
+                    }]
+                };
 
-                // show the logon form and hide the profile section
+                var options = {
+                    legend: {
+                        display: false
+                    },
+                    title: {
+                        display: true,
+                        text: 'Sales by Year'
+                    },
+                    scales: {
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'x1000'
+                            }
+                        }]
+                    }
+
+                }
+                var ctx = $('#salesYTDChart')[0].getContext('2d');
+
+                var chartInstance = new Chart(ctx, {
+                        type: 'bar',
+                        data: data,
+                        options: options
+                    });
+
+                // ensure the logon form is hidden and the profile section is visible.
                 var logonForm = document.getElementById("logonForm");
-                logonForm.setAttribute("class", "displayedPage");
+                logonForm.setAttribute("class", "hiddenPage");
                 var profile = document.getElementById("profile");
-                profile.setAttribute("class", "hiddenPage");
-            }
+                profile.setAttribute("class", "displayedPage");
 
-            // inform the user that the credentials were incorrect and prompt them to re-enter.
-            if (typeof fabric === "object") {
-                if ('Toast' in fabric) {
-                    var component = new fabric['Toast'];
-                    component.showToast('Credentials Required', 'Please enter your Epicor 10 username and password. ');
-                }
-            }
+            }).always(function () {
+                
 
-        }).always(function () {
-
-            Chart.types.Doughnut.extend({
-                name: "DoughnutTextInside",
-                showTooltip: function () {
-                    this.chart.ctx.save();
-                    Chart.types.Doughnut.prototype.showTooltip.apply(this, arguments);
-                    this.chart.ctx.restore();
-                },
-                draw: function () {
-                    Chart.types.Doughnut.prototype.draw.apply(this, arguments);
-
-                    var width = this.chart.width,
-                        height = this.chart.height;
-
-                    var fontSize = (height / 114).toFixed(2);
-                    this.chart.ctx.font = 0.5 + "em Verdana";
-                    this.chart.ctx.textBaseline = "middle";
-
-                    var text = "Sales by Region",
-                        textX = Math.round((width - this.chart.ctx.measureText(text).width) / 2),
-                        textY = height / 2;
-
-                    this.chart.ctx.fillText(text, textX, textY);
-                }
             });
 
-        });
-    }
+    }).fail(function (error) {
+
+        // if the credentials are blank, or invalid or the token could not be validated then the error returned is 401 (Unauthorized)
+        if (error.status = '401') {
+
+            // show the logon form and hide the profile section
+            var logonForm = document.getElementById("logonForm");
+            logonForm.setAttribute("class", "displayedPage");
+            var profile = document.getElementById("profile");
+            profile.setAttribute("class", "hiddenPage");
+        }
+
+        // inform the user that the credentials were incorrect and prompt them to re-enter.
+        //if (typeof fabric === "object") {
+        //    if ('Toast' in fabric) {
+        //        var component = new fabric['Toast'];
+        //        component.showToast('Credentials Required', 'Please enter your Epicor 10 username and password. ');
+        //    }
+        //}
+
+    }).always(function () {
+
+
+    });
+}
 
 })();

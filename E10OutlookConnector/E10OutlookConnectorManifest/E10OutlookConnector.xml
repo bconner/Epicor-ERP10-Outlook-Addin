@@ -40,7 +40,7 @@
   <FormSettings>
     <Form xsi:type="ItemRead">
       <DesktopSettings>
-        <SourceLocation DefaultValue="https://e10outlook.azurewebsites.net/addin/MessageRead.html"/>
+        <SourceLocation DefaultValue="https://e10outlook.azurewebsites.net/Addin/MessageRead.html"/>
         <RequestedHeight>450</RequestedHeight>
       </DesktopSettings>
     </Form>

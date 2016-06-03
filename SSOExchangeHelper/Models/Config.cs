@@ -6,9 +6,12 @@ namespace Models
 {
   public static class Config
   {
-    // If you get errors that the audience is valid, you will need to change this
-    // value to the location of your mail app HTML file.
-    public static string Audience = @"https://e10outlook.azurewebsites.net/addin/MessageRead.html";
+        // If you get errors that the audience is valid, you will need to change this
+        // value to the location of your mail app HTML file.
+
+        //public static string Audience = @"https://localhost:44300/Addin/MessageRead.html";
+
+        public static string Audience = @"https://e10outlook.azurewebsites.net/addin/MessageRead.html";
   }
 }
 

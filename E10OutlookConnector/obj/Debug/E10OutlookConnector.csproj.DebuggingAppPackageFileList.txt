@@ -1,0 +1,2 @@
+bin\Debug\OfficeAppManifests\E10OutlookConnectorManifest.xml
+C:\Source\Repos\Epicor-ERP10 Outlook Addin\E10OutlookConnector\bin\Debug\E10OutlookConnector.debugapp

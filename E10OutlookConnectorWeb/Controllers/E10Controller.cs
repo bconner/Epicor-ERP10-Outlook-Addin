@@ -46,7 +46,9 @@ namespace E10OutlookConnectorWeb.Controllers
             idCache = new Dictionary<string, string>();
         }
 
-        public async Task<HttpResponseMessage> Post(ServiceRequest serviceRequest)
+        [HttpPost]
+        [Route("api/e10/contact")]
+        public async Task<HttpResponseMessage> Contact(ServiceRequest serviceRequest)
         {
             HttpResponseMessage response = new HttpResponseMessage();
 
@@ -93,7 +95,83 @@ namespace E10OutlookConnectorWeb.Controllers
                     using (var client = new HttpClient())
                     {
                         // Note - once Epicor have an API endpoint that fits the data model requested by the add-in then the URL will need to change and the request.context value applied as a filter
-                        HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, @"https://40.86.103.253/ERP101500/api/v1/Erp.Bo.CustomerSvc/Customers?$filter=CustID eq 'Addison'");
+                        HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, @"https://40.86.103.253/ERP101500/api/v1/BaqSvc/CustomerSnapshot?$filter=CustCnt_EMailAddress eq 'andrewa@wfo.epicor.com'");
+
+                        // basic authorization
+                        request.Headers.Authorization = new AuthenticationHeaderValue("Basic", credentials);
+
+                        // added to avoid local host ssl certificate errors - should be removed once 'proper' certificate is in place.
+                        ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
+
+                        // wait for the response
+                        response = await client.SendAsync(request);
+                    }
+                }
+            }
+            catch (TokenValidationException ex)
+            {
+                // an error in the token suggests the user does not have authorization to call the API
+                response.StatusCode = HttpStatusCode.Unauthorized;
+            }
+            catch (Exception ex)
+            {
+                // any other error needs to be handled gracefully and the 'correct' status code applied
+                response.StatusCode = HttpStatusCode.InternalServerError;
+            }
+
+            return response;
+        }
+
+        [HttpPost]
+        [Route("api/e10/values")]
+        public async Task<HttpResponseMessage> Values(ServiceRequest serviceRequest)
+        {
+            HttpResponseMessage response = new HttpResponseMessage();
+
+            // ensure we have a valid Identity Token, i.e. the user belongs to this exchange
+            var token = (AppIdentityToken)AuthToken.Parse(serviceRequest.token);
+
+            // demonstrates how to decode the token so that it can be inspected
+            var idToken = TokenDecoder.Decode(serviceRequest.token);
+
+            try
+            {
+                // Validate the user identity token. This validation ensures the request came from the Office add-in and not from a rogue request from another source.
+                // This does not stop DOS but it does make sure the user does not have access to the Epicor APIs
+                token.Validate(new Uri(Config.Audience));
+
+                // If the token is invalid, Validate will throw an exception. If the service reaches
+                // this line, the token is valid.
+
+                string credentials = string.Empty;
+
+                // Check to see if the uniqued ID is in the cache.
+                if (idCache.ContainsKey(token.UniqueUserIdentification))
+                {
+                    // the user has already logged in within Outlook session so use those credentials
+                    credentials = idCache[token.UniqueUserIdentification];
+                }
+                // If the unique ID is not found, check to see if the request contains a username and password.
+                else if (!string.IsNullOrEmpty(serviceRequest.userName) && !string.IsNullOrEmpty(serviceRequest.password))
+                {
+                    // if a username and password are present then convert to the format expected by the API, in this case Base64 - Basic Authentication
+                    credentials = Convert.ToBase64String(Encoding.ASCII.GetBytes(string.Format("{0}:{1}", serviceRequest.userName, serviceRequest.password)));
+                    // cache the credentials in the static dictionary so that they can be retrieved on the next request. This session is valid for the lifetime of the user session.
+                    idCache.Add(token.UniqueUserIdentification, credentials);
+                }
+                else
+                {
+                    // if this status code is changed to another value, then the check in the fail outcome in the add-in needs to be cahnged as well.
+                    response.StatusCode = HttpStatusCode.Unauthorized;
+                }
+
+                // finally if the token is valid and credentials have been supplied then make the call to the Epicor API
+                if (!string.IsNullOrEmpty(credentials))
+                {
+                    using (var client = new HttpClient())
+                    {
+                        // Note - once Epicor have an API endpoint that fits the data model requested by the add-in then the URL will need to change and the request.context value applied as a filter
+                        HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, @"https://40.86.103.253/ERP101500/api/v1/BaqSvc/CustomerSalesByFiscalYear?$orderBy=Calculated_FiscalYear$top=5&$filter=CustCnt_EMailAddress eq 'andrewa@wfo.epicor.com'");
 
                         // basic authorization
                         request.Headers.Authorization = new AuthenticationHeaderValue("Basic", credentials);

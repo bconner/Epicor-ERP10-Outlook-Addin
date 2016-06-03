@@ -49,81 +49,87 @@ SOFTWARE.-->
     <link rel="stylesheet" href="/Addin/Common.css" />
     <link rel="stylesheet" href="/Addin/Toast.css" />
     <link rel="stylesheet" href="/Addin/Login.css" />
+    <link rel="stylesheet" href="/Addin/Proposition.css" />
 
     <!-- To enable the offline use of Office UI Fabric, use: -->
     <!-- link rel="stylesheet" href="Content/fabric.min.css" -->
     <!-- link rel="stylesheet" href="Content/fabric.components.min.css" -->
 </head>
 <body class="ms-font-l ms-landing-page">
-    <div id="logonForm" class="hiddenPage">
-        <section class="ms-login__content ms-font-m ms-fontColor-neutralPrimary">
-            <h2 class="ms-font-xl ms-fontWeight-light">E10 Customer Info</h2>
-            <div class="ms-login__login-panel">
-                <h3 class="ms-font-l ms-fontColor-themePrimary">Login to access this feature</h3>
-                <div class="ms-login__form">
-                    <p class="ms-login__input ">
-                        <label for="username">Username</label>
-                        <input class="input__username" type="text" name="username" id="username" />
-                    </p>
-                    <p class="ms-login__input ">
-                        <label for="password">Password</label>
-                        <input class="input__password" type="password" id="password" />
-                    </p>
-                    <input class="input__submit" type="submit" value="Login" id="login" />
-                </div>
-            </div>
-        </section>
-
-    </div>
-
-    <main class="ms-landing-page__main">
-        <section class="ms-landing-page__content ms-font-m ms-fontColor-neutralPrimary">
-            <div class="ms-Grid hiddenPage" id="profile">
-                <div class="ms-Grid-row">
-                    <div id="company" class="ms-font-l ms-fontWeight-semibold ms-fontColor-redDark"><b></b></div>
-                    <div class="ms-Grid-col ms-u-sm12">
-                        <div class="ms-Grid-col ms-u-sm9">
-                            <div class="ms-Table">
-                                <div class="ms-Table-row ms-font-xs">
-                                </div>
-                                <div class="ms-Table-row">
-                                    <span class="class=" ms-Table-cell ms-fontWeight-semibold">Contact</span>
-                                    <span id="contact" class="ms-Table-cell"></span>
-                                </div>
-                                <div class="ms-Table-row">
-                                    <span class="class=" ms-Table-cell ms-fontWeight-semibold">Title</span>
-                                    <span id="title" class="ms-Table-cell"></span>
-                                </div>
-                                <div class="ms-Table-row">
-                                    <span class="class=" ms-Table-cell ms-fontWeight-semibold">Telephone</span>
-                                    <a id="telephone" class="ms-Table-cell ms-Link" href=""></a>
-                                </div>
-                                <div class="ms-Table-row">
-                                    <span class="class=" ms-Table-cell ms-fontWeight-semibold">Cell</span>
-                                    <a id="cell" class="ms-Table-cell ms-Link" href=""></a>
-                                </div>
-                                <div class="ms-Table-row">
-                                    <span class="class=" ms-Table-cell ms-fontWeight-semibold">Email</span>
-                                    <a id="email" class="ms-Table-cell ms-Link" href=""></a>
-                                </div>
-                                <div class="ms-Table-row ms-font-xs">
-                                </div>
-                            </div>
+    <main>
+        <div id="logonForm" class="hiddenPage">
+            <div class="ms-firstrun-value">
+                <section class="ms-firstrun-value__header ms-bgColor-themePrimary">
+                    <div class="ms-firstrun-value__logo">
+                        <img src="/assets/logo.png" />
+                    </div>
+                    <div class="ms-firstrun-value__title">
+                        <h1 class="ms-font-xl ms-fontWeight-light ms-fontColor-white">Welcome to Epicor 10</h1>
+                    </div>
+                    <div class="ms-firstrun-value__subtitle ms-font-m ms-fontWeight-light ms-fontColor-white">
+                        <p>This add-in helps you be productive at work!</p>
+                    </div>
+                </section>
+                <section class="ms-firstrun-trial-feature__content ms-font-m ms-fontColor-neutralPrimary">
+                    <div class="ms-firstrun-trial-feature__login-panel">
+                        <h3 class="ms-font-l ms-fontColor-themePrimary">Login to access this feature</h3>
+                        <div class="ms-firstrun-trial-feature__form">
+                            <p class="ms-firstrun-trial-feature__input ">
+                                <label for="username">Username</label>
+                                <input class="input__username" type="text" name="username" id="username" />
+                            </p>
+                            <p class="ms-firstrun-trial-feature__input ">
+                                <label for="password">Password</label>
+                                <input class="input__password" type="password" name="password" id="password" />
+                            </p>
+                            <input class="input__submit" type="submit" name="submit" value="Login" id="login" />
                         </div>
-                        <div class="ms-Grid-col ms-u-sm3">
-                            <div class="ms-Table">
-                                <div class="ms-Table-row"></div>
-                                <div class="ms-Table-row">
-                                    <div class="ms-Grid">
-                                        <div class="ms-Grid-row" align="center">
-                                            <span class="ms-Label ms-font-l">Credit Hold</span>
-                                        </div>
-                                        <div class="ms-Grid-row" align="center">
-                                            <span id="onhold" class="ms-font-su ms-fontWeight-semibold"><b></b></span>
-                                        </div>
-                                    </div>
-                                </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="ms-Grid hiddenPage" id="profile">
+            <section class="ms-landing-page__content ms-font-m ms-fontColor-neutralPrimary">
+                <div class="ms-Grid-row">
+                    <div id="company" class="ms-font-l ms-fontWeight-semibold ms-fontColor-blueDark"><b></b></div>
+                    <div class="ms-Grid-col ms-u-sm12">
+
+                        <div class="ms-Table">
+                            <div class="ms-Table-row ms-font-xs">
                             </div>
+                            <div class="ms-Table-row">
+                                <span class="class=" ms-Table-cell ms-fontWeight-semibold">Credit Hold</span>
+                                <span id="onhold" class="ms-Table-cell ms-fontWeight-semibold"></span>
+                            </div>
+                            <div class="ms-Table-row">
+                                <span class="class=" ms-Table-cell ms-fontWeight-semibold">Contact</span>
+                                <span id="contact" class="ms-Table-cell"></span>
+                            </div>
+                            <div class="ms-Table-row">
+                                <span class="class=" ms-Table-cell ms-fontWeight-semibold">Title</span>
+                                <span id="title" class="ms-Table-cell"></span>
+                            </div>
+                            <div class="ms-Table-row">
+                                <span class="class=" ms-Table-cell ms-fontWeight-semibold">Telephone</span>
+                                <a id="telephone" class="ms-Table-cell ms-Link" href=""></a>
+                            </div>
+                            <div class="ms-Table-row">
+                                <span class="class=" ms-Table-cell ms-fontWeight-semibold">Cell</span>
+                                <a id="cell" class="ms-Table-cell ms-Link" href=""></a>
+                            </div>
+                            <div class="ms-Table-row">
+                                <span class="class=" ms-Table-cell ms-fontWeight-semibold">Email</span>
+                                <a id="email" class="ms-Table-cell ms-Link" href=""></a>
+                            </div>
+                            <div class="ms-Table-row">
+                                <span class="class=" ms-Table-cell ms-fontWeight-semibold">Address</span>
+                                <span id="address1" class="ms-Table-cell"></span>
+                            </div>
+                            <div class="ms-Table-row">
+                                <span class="class=" ms-Table-cell ms-fontWeight-semibold"></span>
+                                <span id="address2" class="ms-Table-cell"></span>
+                            </div>
+                            <div class="ms-Table-row ms-font-xs"></div>
                         </div>
                     </div>
                 </div>
@@ -134,45 +140,21 @@ SOFTWARE.-->
                 </article>
                 <div class="ms-Grid-row">
                     <div class="ms-Grid-col ms-u-sm12">
-                        <div class="ms-Grid-col ms-u-sm6">
-                            <div class="ms-Table">
-                                <div class="ms-Table-row"></div>
-                                <div class="ms-Table-row">
-                                    <span class="class=" ms-Table-cell ms-fontWeight-semibold">Sales YTD</span>
-                                    <span id="salesYtd" class="ms-Table-cell ms-font-m-plus"></span>
-                                </div>
-                                <div class="ms-Table-row">
-                                    <span class="class=" ms-Table-cell ms-fontWeight-semibold">Open Orders</span>
-                                    <span id="openOrders" class="ms-Table-cell ms-font-m-plus"></span>
-                                </div>
+                        <div class="ms-Table">
+                            <div class="ms-Table-row"></div>
+                            <div class="ms-Table-row">
+                                <span class="class=" ms-Table-cell ms-fontWeight-semibold">Open A/R</span>
+                                <span id="openAR" class="ms-Table-cell"></span>
                             </div>
-                        </div>
-                        <div class="ms-Grid-col ms-u-sm6">
-                            <div class="ms-Table">
-                                <div class="ms-Table-row"></div>
-                                <div class="ms-Table-row">
-                                    <span class="class=" ms-Table-cell ms-fontWeight-semibold">Open A/R5</span>
-                                    <span id="openAR" class="ms-Table-cell ms-font-m-plus"></span>
-                                </div>
-                                <div class="ms-Table-row">
-                                    <span class="class=" ms-Table-cell ms-fontWeight-semibold">A/R 90 days</span>
-                                    <span id="ar90days" class="ms-Table-cell ms-font-m-plus"></span>
-                                </div>
+                            <div class="ms-Table-row">
+                                <span class="class=" ms-Table-cell ms-fontWeight-semibold">Open Orders</span>
+                                <span id="openOrders" class="ms-Table-cell"></span>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
     </main>
-    <footer class="ms-landing-page__footer  ms-bgColor-themePrimary">
-        <div class="ms-landing-page__footer--left">
-            <img src="/Assets/logo-filled.png" />
-            <h1 class="ms-font-xl ms-fontWeight-semilight ms-fontColor-white">Epicor 10</h1>
-        </div>
-        <div class="ms-landing-page__footer--right">
-            <i class="ms-Icon enlarge ms-Icon--gear ms-fontColor-white"></i>
-        </div>
-    </footer>
 </body>
 </html>

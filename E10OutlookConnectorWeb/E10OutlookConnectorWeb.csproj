@@ -101,6 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Addin\Login.css" />
+    <Content Include="Addin\Proposition.css" />
     <Content Include="Addin\Toast.css" />
     <Content Include="Addin\Toast.js" />
     <Content Include="Assets\generic-placeholder.png" />

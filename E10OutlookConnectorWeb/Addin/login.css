@@ -1,12 +1,12 @@
 ﻿/* Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See full license in root of repo. */
-.ms-login {
+.ms-firstrun-trial-feature {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     height: 100%;
 }
 
-.ms-login__main {
+.ms-firstrun-trial-feature__main {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -14,14 +14,14 @@
     height: 100%;
 }
 
-.ms-login__header {
+.ms-firstrun-trial-feature__header {
     border-bottom: solid 2px #0078d7;
     display: inline-flex;
     justify-content: center;
     align-items: center;
 }
 
-.ms-login__header--left {
+.ms-firstrun-trial-feature__header--left {
     -moz-transition: background ease 0.1s, color ease 0.1s;
     -o-transition: background ease 0.1s, color ease 0.1s;
     -webkit-transition: background ease 0.1s, color ease 0.1s;
@@ -30,12 +30,12 @@
     cursor: pointer;
 }
 
-    .ms-login__header--left:active, .ms-login__header--left:hover {
+    .ms-firstrun-trial-feature__header--left:active, .ms-firstrun-trial-feature__header--left:hover {
         background: #eff6fc;
         cursor: pointer;
     }
 
-    .ms-login__header--left:active {
+    .ms-firstrun-trial-feature__header--left:active {
         background: #eff6fc;
         -moz-transform: scale3d(0.98, 0.98, 1);
         -ms-transform: scale3d(0.98, 0.98, 1);
@@ -44,17 +44,17 @@
         transform: scale3d(0.98, 0.98, 1);
     }
 
-    .ms-login__header--left.disabled {
+    .ms-firstrun-trial-feature__header--left.disabled {
         opacity: 0.6;
         pointer-events: none;
         cursor: not-allowed;
     }
 
-        .ms-login__header--left.disabled:active, .ms-login__header--left.disabled:hover {
+        .ms-firstrun-trial-feature__header--left.disabled:active, .ms-firstrun-trial-feature__header--left.disabled:hover {
             background: transparent;
         }
 
-        .ms-login__header--left.disabled:active {
+        .ms-firstrun-trial-feature__header--left.disabled:active {
             -moz-transform: none;
             -ms-transform: none;
             -o-transform: none;
@@ -62,14 +62,14 @@
             transform: none;
         }
 
-.ms-login__header--right {
+.ms-firstrun-trial-feature__header--right {
     flex: 1 0 0px;
     display: inline-flex;
     justify-content: center;
     align-items: center;
 }
 
-    .ms-login__header--right p {
+    .ms-firstrun-trial-feature__header--right p {
         padding: 0 10px;
         flex: 1 0 0px;
         overflow: hidden;
@@ -84,12 +84,12 @@
         transition: background ease 0.1s, color ease 0.1s;
     }
 
-        .ms-login__header--right p:active, .ms-login__header--right p:hover {
+        .ms-firstrun-trial-feature__header--right p:active, .ms-firstrun-trial-feature__header--right p:hover {
             background: #eff6fc;
             cursor: pointer;
         }
 
-        .ms-login__header--right p:active {
+        .ms-firstrun-trial-feature__header--right p:active {
             background: #eff6fc;
             -moz-transform: scale3d(0.98, 0.98, 1);
             -ms-transform: scale3d(0.98, 0.98, 1);
@@ -98,17 +98,17 @@
             transform: scale3d(0.98, 0.98, 1);
         }
 
-        .ms-login__header--right p.disabled {
+        .ms-firstrun-trial-feature__header--right p.disabled {
             opacity: 0.6;
             pointer-events: none;
             cursor: not-allowed;
         }
 
-            .ms-login__header--right p.disabled:active, .ms-login__header--right p.disabled:hover {
+            .ms-firstrun-trial-feature__header--right p.disabled:active, .ms-firstrun-trial-feature__header--right p.disabled:hover {
                 background: transparent;
             }
 
-            .ms-login__header--right p.disabled:active {
+            .ms-firstrun-trial-feature__header--right p.disabled:active {
                 -moz-transform: none;
                 -ms-transform: none;
                 -o-transform: none;
@@ -116,15 +116,15 @@
                 transform: none;
             }
 
-        .ms-login__header--right p:last-child {
+        .ms-firstrun-trial-feature__header--right p:last-child {
             border-right: none;
         }
 
-.ms-login__header--selected {
+.ms-firstrun-trial-feature__header--selected {
     background-color: #daeaf8;
 }
 
-.ms-login__content {
+.ms-firstrun-trial-feature__content {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -136,53 +136,53 @@
     padding: 20px;
 }
 
-    .ms-login__content h2 {
+    .ms-firstrun-trial-feature__content h2 {
         margin-bottom: 20px;
     }
 
-.ms-login__login-panel {
+.ms-firstrun-trial-feature__login-panel {
     width: 100%;
     height: 245px;
     border: solid 1px #0078d7;
 }
 
-    .ms-login__login-panel h3 {
+    .ms-firstrun-trial-feature__login-panel h3 {
         margin-top: 30px;
         margin-bottom: 10px;
         padding: 0 20px;
     }
 
-.ms-login__label {
+.ms-firstrun-trial-feature__label {
     margin-top: 60px;
     align-self: center;
 }
 
-.ms-login__input {
+.ms-firstrun-trial-feature__input {
     padding: 0 20px;
     margin-top: 10px;
     width: calc(100% - 40px);
 }
 
-    .ms-login__input label {
+    .ms-firstrun-trial-feature__input label {
         clear: both;
         display: block;
         width: 100%;
         margin-bottom: 5px;
     }
 
-    .ms-login__input input {
+    .ms-firstrun-trial-feature__input input {
         width: calc(100% - 24px);
         border: solid 1px #0078d7;
         padding: 10px;
     }
 
-.ms-login__footer {
+.ms-firstrun-trial-feature__footer {
     display: inline-flex;
     justify-content: center;
     align-items: center;
 }
 
-.ms-login__footer--left {
+.ms-firstrun-trial-feature__footer--left {
     -moz-transition: background ease 0.1s, color ease 0.1s;
     -o-transition: background ease 0.1s, color ease 0.1s;
     -webkit-transition: background ease 0.1s, color ease 0.1s;
@@ -194,31 +194,31 @@
     padding: 20px;
 }
 
-    .ms-login__footer--left:active, .ms-login__footer--left:hover {
+    .ms-firstrun-trial-feature__footer--left:active, .ms-firstrun-trial-feature__footer--left:hover {
         background: #005ca4;
         cursor: pointer;
     }
 
-    .ms-login__footer--left:active {
+    .ms-firstrun-trial-feature__footer--left:active {
         background: #005ca4;
     }
 
-    .ms-login__footer--left.disabled {
+    .ms-firstrun-trial-feature__footer--left.disabled {
         opacity: 0.6;
         pointer-events: none;
         cursor: not-allowed;
     }
 
-        .ms-login__footer--left.disabled:active, .ms-login__footer--left.disabled:hover {
+        .ms-firstrun-trial-feature__footer--left.disabled:active, .ms-firstrun-trial-feature__footer--left.disabled:hover {
             background: transparent;
         }
 
-    .ms-login__footer--left img {
+    .ms-firstrun-trial-feature__footer--left img {
         width: 40px;
         height: 40px;
     }
 
-    .ms-login__footer--left h1 {
+    .ms-firstrun-trial-feature__footer--left h1 {
         flex: 1 0 0px;
         margin-left: 15px;
         text-align: left;
@@ -231,7 +231,7 @@
         text-overflow: ellipsis;
     }
 
-.ms-login__footer--right {
+.ms-firstrun-trial-feature__footer--right {
     -moz-transition: background ease 0.1s, color ease 0.1s;
     -o-transition: background ease 0.1s, color ease 0.1s;
     -webkit-transition: background ease 0.1s, color ease 0.1s;
@@ -239,22 +239,22 @@
     padding: 29px 20px;
 }
 
-    .ms-login__footer--right:active, .ms-login__footer--right:hover {
+    .ms-firstrun-trial-feature__footer--right:active, .ms-firstrun-trial-feature__footer--right:hover {
         background: #005ca4;
         cursor: pointer;
     }
 
-    .ms-login__footer--right:active {
+    .ms-firstrun-trial-feature__footer--right:active {
         background: #005ca4;
     }
 
-    .ms-login__footer--right.disabled {
+    .ms-firstrun-trial-feature__footer--right.disabled {
         opacity: 0.6;
         pointer-events: none;
         cursor: not-allowed;
     }
 
-        .ms-login__footer--right.disabled:active, .ms-login__footer--right.disabled:hover {
+        .ms-firstrun-trial-feature__footer--right.disabled:active, .ms-firstrun-trial-feature__footer--right.disabled:hover {
             background: transparent;
         }
 
