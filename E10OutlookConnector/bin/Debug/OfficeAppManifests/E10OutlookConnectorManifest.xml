@@ -10,25 +10,20 @@
   <!-- Begin Basic Settings: Add-in metadata, used for all versions of Office unless override provided. -->
 
   <!-- IMPORTANT! Id must be unique for your add-in, if you reuse this manifest ensure that you change this id to a new GUID. -->
-  <Id>88e95097-d98a-4dac-b8a7-676d9829b054</Id>
+  <Id>cf19860b-b296-4f50-befd-6285b8b668e2</Id>
 
   <!--Version. Updates from the store only get triggered if there is a version change. -->
   <Version>1.0.0.0</Version>
-  <ProviderName>codemoggy</ProviderName>
+  <ProviderName>Epicor</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <!-- The display name of your add-in. Used on the store and various places of the Office UI such as the add-ins dialog. -->
-  <DisplayName DefaultValue="Customer Info" />
-  <Description DefaultValue="Customer Info"/>
+  <DisplayName DefaultValue="Epicor 10" />
+  <Description DefaultValue="Epicor 10"/>
+  <IconUrl DefaultValue="https://e10outlook.azurewebsites.net/Images/Epicor1096x96.png" />
+  <HighResolutionIconUrl DefaultValue="https://e10outlook.azurewebsites.net/Images/Epicor10128x128.png" />
+  <SupportUrl DefaultValue="http://www.epicor.com/company/ask-an-epicor-expert.aspx" />
 
 
-  <!-- Domains that will be allowed when navigating. For example, if you use ShowTaskpane and then have an href link, navigation will only be allowed if the domain is on this list. -->
-  <AppDomains>
-    <AppDomain>https://40.86.103.253/ERP101500/</AppDomain>
-    <AppDomain>AppDomain2</AppDomain>
-    <AppDomain>AppDomain3</AppDomain>
-  </AppDomains>
-  <!--End Basic Settings. -->
-  
   <Hosts>
     <Host Name="Mailbox" />
   </Hosts>
@@ -40,7 +35,7 @@
   <FormSettings>
     <Form xsi:type="ItemRead">
       <DesktopSettings>
-        <SourceLocation DefaultValue="https://e10outlook.azurewebsites.net/Addin/MessageRead.html"/>
+        <SourceLocation DefaultValue="https://e10outlook.azurewebsites.net/Addin/MessageRead_horizontal.html"/>
         <RequestedHeight>450</RequestedHeight>
       </DesktopSettings>
     </Form>
@@ -105,7 +100,7 @@
       </bt:Images>
       <bt:Urls>
         <bt:Url id="functionFile" DefaultValue="https://e10outlook.azurewebsites.net/Functions/FunctionFile.html"/>
-        <bt:Url id="messageReadTaskPaneUrl" DefaultValue="https://e10outlook.azurewebsites.net/Addin/MessageRead.html"/>
+        <bt:Url id="messageReadTaskPaneUrl" DefaultValue="https://e10outlook.azurewebsites.net/Addin/MessageRead_vertical.html"/>
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="groupLabel" DefaultValue="Epicor"/>

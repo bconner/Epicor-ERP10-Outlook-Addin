@@ -11,7 +11,7 @@ namespace Models
 
         //public static string Audience = @"https://localhost:44300/Addin/MessageRead.html";
 
-        public static string Audience = @"https://e10outlook.azurewebsites.net/addin/MessageRead.html";
+        public static string[] Audience = { @"https://e10outlook.azurewebsites.net/addin/MessageRead_vertical.html", @"https://e10outlook.azurewebsites.net/addin/MessageRead_horizontal.html", @"https://localhost:44300/addin/MessageRead_vertical.html", @"https://localhost:44300/addin/MessageRead_horizontal.html" };
   }
 }
 

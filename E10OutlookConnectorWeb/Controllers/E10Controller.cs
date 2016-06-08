@@ -62,7 +62,7 @@ namespace E10OutlookConnectorWeb.Controllers
             {
                 // Validate the user identity token. This validation ensures the request came from the Office add-in and not from a rogue request from another source.
                 // This does not stop DOS but it does make sure the user does not have access to the Epicor APIs
-                token.Validate(new Uri(Config.Audience));
+                ValidateIdentity(token);
 
                 // If the token is invalid, Validate will throw an exception. If the service reaches
                 // this line, the token is valid.
@@ -138,7 +138,7 @@ namespace E10OutlookConnectorWeb.Controllers
             {
                 // Validate the user identity token. This validation ensures the request came from the Office add-in and not from a rogue request from another source.
                 // This does not stop DOS but it does make sure the user does not have access to the Epicor APIs
-                token.Validate(new Uri(Config.Audience));
+                ValidateIdentity(token);
 
                 // If the token is invalid, Validate will throw an exception. If the service reaches
                 // this line, the token is valid.
@@ -196,6 +196,25 @@ namespace E10OutlookConnectorWeb.Controllers
             }
 
             return response;
+        }
+
+        private void ValidateIdentity(AppIdentityToken token)
+        {
+            for (int i = 0; i < Config.Audience.Length; i++)
+            {
+                try
+                {
+                    token.Validate(new Uri(Config.Audience[i]));
+                    break;
+                }
+                catch (TokenValidationException ex)
+                {
+                    if (i == Config.Audience.Length - 1)
+                    {
+                        throw (ex);
+                    }
+                }
+            }
         }
     }
 }

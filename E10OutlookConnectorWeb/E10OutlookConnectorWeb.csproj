@@ -101,6 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Addin\Login.css" />
+    <Content Include="Addin\MessageRead_vertical.html" />
     <Content Include="Addin\Proposition.css" />
     <Content Include="Addin\Toast.css" />
     <Content Include="Addin\Toast.js" />
@@ -117,6 +118,9 @@
     <Content Include="Assets\video-placeholder.png" />
     <Content Include="Addin\Common.css" />
     <Content Include="Global.asax" />
+    <Content Include="Images\Epicor10128x128.png" />
+    <Content Include="Images\Epicor1080x80.png" />
+    <Content Include="Images\Epicor1096x96.png" />
     <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\E10Outlook - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
@@ -174,12 +178,8 @@
     <Content Include="Images\Epicor1016x16.png" />
     <Content Include="Images\Epicor1032x32.png" />
     <Content Include="Images\Epicor1064x64.png" />
-    <Content Include="Images\Epicor1080x80.png" />
-    <Content Include="Images\Icon16.png" />
-    <Content Include="Images\Icon32.png" />
-    <Content Include="Images\Icon80.png" />
     <Content Include="Addin\MessageRead.css" />
-    <Content Include="Addin\MessageRead.html" />
+    <Content Include="Addin\MessageRead_horizontal.html" />
     <Content Include="Addin\MessageRead.js" />
     <Content Include="Scripts\Chart.js" />
     <Content Include="Scripts\Chart.min.js" />

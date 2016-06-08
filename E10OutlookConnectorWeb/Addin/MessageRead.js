@@ -171,13 +171,22 @@
                     }
 
                 }
-                var ctx = $('#salesYTDChart')[0].getContext('2d');
 
-                var chartInstance = new Chart(ctx, {
+                try {
+
+                    var ctx = $('#salesYTDChart')[0].getContext('2d');
+
+                    var chartInstance = new Chart(ctx, {
                         type: 'bar',
                         data: data,
                         options: options
                     });
+
+                } catch (err) {}
+
+                var salesYTD = chartData.value[chartData.value.length - 1].Calculated_TotalSales;
+
+                $("#salesYTD").text('$' + parseFloat(salesYTD).toFixed(2));
 
                 // ensure the logon form is hidden and the profile section is visible.
                 var logonForm = document.getElementById("logonForm");

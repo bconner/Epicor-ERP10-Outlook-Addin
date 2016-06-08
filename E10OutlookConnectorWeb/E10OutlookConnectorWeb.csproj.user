@@ -11,6 +11,8 @@
     <NameOfLastUsedPublishProfile>E10Outlook - Web Deploy</NameOfLastUsedPublishProfile>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort>44300</IISExpressSSLPort>
+    <ProfileToSelectInPublishDialog>
+    </ProfileToSelectInPublishDialog>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
