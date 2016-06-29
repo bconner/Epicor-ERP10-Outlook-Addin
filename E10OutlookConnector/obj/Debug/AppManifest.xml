@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <App xmlns="http://schemas.microsoft.com/sharepoint/2012/app/manifest"
      Name="E10OutlookConnector"
-     ProductID="{7c19c76d-a1d9-4b64-b214-db36bc5ce991}"
+     ProductID="{cb1691fd-c4e9-4807-9922-6a9800a02862}"
      Version="1.0.0.0"
      SharePointMinVersion="15.0.0.0"
 >

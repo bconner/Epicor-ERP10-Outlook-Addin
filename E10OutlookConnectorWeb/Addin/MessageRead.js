@@ -67,8 +67,6 @@
 
         var logonForm = document.getElementById("logonForm");
         logonForm.setAttribute("class", "hiddenPage");
-        var profile = document.getElementById("profile");
-        profile.setAttribute("class", "displayedPage");
 
         request.userName = userName.value;
 
@@ -92,6 +90,7 @@
         //// get the context - in this the email address
         var item = Office.context.mailbox.item;
         request.context = item.sender.emailAddress;
+
         var chartYTDData = new Array();
 
         var chartXAxis = new Array();
@@ -106,123 +105,135 @@
 
             var customer = data.value[0];
 
-            // apply the data from the API call to the elements within the HTML page.
+            if (customer == null) {
 
-            $("#contact").text(customer.CustCnt_Name);
-            $("#title").text(customer.CustCnt_ContactTitle);
-            $("#company").text(customer.Company_Name + ' (' + customer.Customer_Company + ')');
-            $("a#email").attr('href', 'mailto:' + customer.CustCnt_EMailAddress);
-            $("a#email").text(customer.CustCnt_EMailAddress);
-            $("a#telephone").attr('href', 'skype:' + customer.CustCnt_PhoneNum + '?call');
-            $("a#telephone").text(customer.CustCnt_PhoneNum);
-            $("a#cell").attr('href', 'skype:' + customer.CustCnt_CellPhoneNum + '?call');
-            $("a#cell").text(customer.CustCnt_CellPhoneNum);
-            $("#openOrders").text(customer.Calculated_OpenOrder);
-            $("#openAR").text('$' + customer.Calculated_OpenARValue);
-
-            if (customer.Customer_CreditHold == false) {
-                $("#onhold").text('N');
-            } else {
-                $("#onhold").text('Y');
-            };
-
-            $("#address1").text(customer.Customer_Address1);
-            $("#address2").text(customer.Customer_City + ', ' + customer.Customer_State + ', ' + customer.Customer_Zip + ', ' + customer.Customer_Country);
-
-            // get the chart data
-            $.ajax({
-                url: '../../api/e10/values',
-                type: 'POST',
-                data: JSON.stringify(request),
-                contentType: 'application/json;charset=utf-8'
-            }).done(function (chartData) {
-
-                // show the years Sales Figures
-                chartData.value.forEach(function (entry) {
-                    chartXAxis.push(entry.Calculated_FiscalYear);
-
-                    // divide the number by 1000 to make the chart more readable
-                    var s = (parseFloat(entry.Calculated_TotalSales) / 1000).toFixed(2);
-                    chartYAxis.push(s);
-                });
-
-                var data = {
-                    labels: chartXAxis,
-                    datasets: [{
-                        data: chartYAxis
-                    }]
-                };
-
-                var options = {
-                    legend: {
-                        display: false
-                    },
-                    title: {
-                        display: true,
-                        text: 'Sales by Year'
-                    },
-                    scales: {
-                        yAxes: [{
-                            scaleLabel: {
-                                display: true,
-                                labelString: 'x1000'
-                            }
-                        }]
+                // inform the user that the credentials were incorrect and prompt them to re-enter.
+                if (typeof fabric === "object") {
+                    if ('Toast' in fabric) {
+                        var component = new fabric['Toast'];
+                        component.showToast('Customer Not Found', 'The sender of the email message cannot be found in the Epicor 10 repository.');
                     }
-
                 }
 
-                try {
+                var profile = document.getElementById("profile");
+                profile.setAttribute("class", "hiddenPage");
 
-                    var ctx = $('#salesYTDChart')[0].getContext('2d');
+            } else {
 
-                    var chartInstance = new Chart(ctx, {
-                        type: 'bar',
-                        data: data,
-                        options: options
-                    });
-
-                } catch (err) {}
-
-                var salesYTD = chartData.value[chartData.value.length - 1].Calculated_TotalSales;
-
-                $("#salesYTD").text('$' + parseFloat(salesYTD).toFixed(2));
-
-                // ensure the logon form is hidden and the profile section is visible.
-                var logonForm = document.getElementById("logonForm");
-                logonForm.setAttribute("class", "hiddenPage");
                 var profile = document.getElementById("profile");
                 profile.setAttribute("class", "displayedPage");
 
-            }).always(function () {
-                
 
-            });
+                // apply the data from the API call to the elements within the HTML page.
 
-    }).fail(function (error) {
+                $("#contact").text(customer.CustCnt_Name);
+                $("#title").text(customer.CustCnt_ContactTitle);
+                $("#company").text(customer.Company_Name + ' (' + customer.Customer_Company + ')');
+                $("a#email").attr('href', 'mailto:' + request.context);
+                $("a#email").text(request.context);
+                $("a#telephone").attr('href', 'skype:' + customer.CustCnt_PhoneNum + '?call');
+                $("a#telephone").text(customer.CustCnt_PhoneNum);
+                $("a#cell").attr('href', 'skype:' + customer.CustCnt_CellPhoneNum + '?call');
+                $("a#cell").text(customer.CustCnt_CellPhoneNum);
+                $("#openOrders").text(customer.Calculated_OpenOrder);
+                $("#openAR").text('$' + customer.Calculated_OpenARValue);
 
-        // if the credentials are blank, or invalid or the token could not be validated then the error returned is 401 (Unauthorized)
-        if (error.status = '401') {
+                if (customer.Customer_CreditHold == false) {
+                    $("#onhold").text('N');
+                } else {
+                    $("#onhold").text('Y');
+                };
 
-            // show the logon form and hide the profile section
-            var logonForm = document.getElementById("logonForm");
-            logonForm.setAttribute("class", "displayedPage");
-            var profile = document.getElementById("profile");
-            profile.setAttribute("class", "hiddenPage");
-        }
+                $("#address1").text(customer.Customer_Address1);
+                $("#address2").text(customer.Customer_City + ', ' + customer.Customer_State + ', ' + customer.Customer_Zip + ', ' + customer.Customer_Country);
 
-        // inform the user that the credentials were incorrect and prompt them to re-enter.
-        //if (typeof fabric === "object") {
-        //    if ('Toast' in fabric) {
-        //        var component = new fabric['Toast'];
-        //        component.showToast('Credentials Required', 'Please enter your Epicor 10 username and password. ');
-        //    }
-        //}
+                // get the chart data
+                $.ajax({
+                    url: '../../api/e10/values',
+                    type: 'POST',
+                    data: JSON.stringify(request),
+                    contentType: 'application/json;charset=utf-8'
+                }).done(function (chartData) {
 
-    }).always(function () {
+                    // show the years Sales Figures
+                    chartData.value.forEach(function (entry) {
+                        chartXAxis.push(entry.Calculated_FiscalYear);
+
+                        // divide the number by 1000 to make the chart more readable
+                        var s = (parseFloat(entry.Calculated_TotalSales) / 1000).toFixed(2);
+                        chartYAxis.push(s);
+                    });
+
+                    var data = {
+                        labels: chartXAxis,
+                        datasets: [{
+                            data: chartYAxis
+                        }]
+                    };
+
+                    var options = {
+                        legend: {
+                            display: false
+                        },
+                        title: {
+                            display: true,
+                            text: 'Sales by Year'
+                        },
+                        scales: {
+                            yAxes: [{
+                                scaleLabel: {
+                                    display: true,
+                                    labelString: 'x1000'
+                                }
+                            }]
+                        }
+
+                    }
+
+                    try {
+
+                        var ctx = $('#salesYTDChart')[0].getContext('2d');
+
+                        var chartInstance = new Chart(ctx, {
+                            type: 'bar',
+                            data: data,
+                            options: options
+                        });
+
+                    } catch (err) { }
+
+                    var salesYTD = chartData.value[chartData.value.length - 1].Calculated_TotalSales;
+
+                    $("#salesYTD").text('$' + parseFloat(salesYTD).toFixed(2));
+
+                    // ensure the logon form is hidden and the profile section is visible.
+                    var logonForm = document.getElementById("logonForm");
+                    logonForm.setAttribute("class", "hiddenPage");
+                    var profile = document.getElementById("profile");
+                    profile.setAttribute("class", "displayedPage");
+
+                }).always(function () {
 
 
-    });
-}
+                });
+            };
+
+        }).fail(function (error) {
+
+            // if the credentials are blank, or invalid or the token could not be validated then the error returned is 401 (Unauthorized)
+            if (error.status = '401') {
+
+                // show the logon form and hide the profile section
+                var logonForm = document.getElementById("logonForm");
+                logonForm.setAttribute("class", "displayedPage");
+                var profile = document.getElementById("profile");
+                profile.setAttribute("class", "hiddenPage");
+            }
+
+        }).always(function () {
+
+
+        });
+    }
 
 })();
