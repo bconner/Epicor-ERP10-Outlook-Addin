@@ -95,7 +95,7 @@ namespace E10OutlookConnectorWeb.Controllers
                     using (var client = new HttpClient())
                     {
                         // Note - once Epicor have an API endpoint that fits the data model requested by the add-in then the URL will need to change and the request.context value applied as a filter
-                        var url = string.Format(@"{0}{1}'", "https://40.86.103.253/ERP101500/api/v1/BaqSvc/CustomerSnapshot?$filter=CustCnt_EMailAddress eq '", serviceRequest.context);
+                        var url = string.Format(@"{0}{1}'", " https://13.89.62.5/ERP101500/api/v1/BaqSvc/CustomerSnapshot?$filter=CustCnt_EMailAddress eq '", serviceRequest.context);
 
                         HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, url);
 
@@ -173,7 +173,7 @@ namespace E10OutlookConnectorWeb.Controllers
                     using (var client = new HttpClient())
                     {
                         // Note - once Epicor have an API endpoint that fits the data model requested by the add-in then the URL will need to change and the request.context value applied as a filter
-                        var url = string.Format(@"{0}{1}'", "https://40.86.103.253/ERP101500/api/v1/BaqSvc/CustomerSalesByFiscalYear?$orderBy=Calculated_FiscalYear$top=5&$filter=CustCnt_EMailAddress eq '", serviceRequest.context);
+                        var url = string.Format(@"{0}{1}'", " https://13.89.62.5/ERP101500/api/v1/BaqSvc/CustomerSalesByFiscalYear?$orderBy=Calculated_FiscalYear$top=5&$filter=CustCnt_EMailAddress eq '", serviceRequest.context);
 
                         HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, url);
 
